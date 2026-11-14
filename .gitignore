@@ -1,0 +1,13 @@
+node_modules/
+.next/
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+*.db
+.env
+.DS_Store
+*.zip
+frontend/tsconfig.tsbuildinfo
+frontend/next-env.d.ts

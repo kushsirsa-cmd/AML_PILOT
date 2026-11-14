@@ -1,0 +1,54 @@
+# docker compose up --build   →   http://localhost:3000   (sign in as any demo persona; password demo1234)
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: aml
+      POSTGRES_PASSWORD: aml
+      POSTGRES_DB: aml
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./sql/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+      - ./sql/views.sql:/docker-entrypoint-initdb.d/02_views.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aml -d aml"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  backend:
+    build: ./backend
+    environment:
+      DATABASE_URL: postgresql+psycopg://aml:aml@db:5432/aml
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      CLAUDE_MODEL: ${CLAUDE_MODEL:-claude-sonnet-5-5}
+      LLM_ENABLED: ${LLM_ENABLED:-true}
+      SEED_ON_STARTUP: ${SEED_ON_STARTUP:-true}
+      SEED_SIZE: ${SEED_SIZE:-full}
+      DEMO_PASSWORD: ${DEMO_PASSWORD:-demo1234}
+      AUTH_SECRET: ${AUTH_SECRET:-change-me-in-production}
+      DEMO_OPEN_ACCESS: ${DEMO_OPEN_ACCESS:-true}
+    ports:
+      - "8000:8000"   # optional: direct API access + Swagger at /docs
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://127.0.0.1:8000/api/health')"]
+      interval: 5s
+      timeout: 5s
+      retries: 60
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        BACKEND_URL: http://backend:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      backend:
+        condition: service_healthy
+
+volumes:
+  pgdata:
