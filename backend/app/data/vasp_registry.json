@@ -1,0 +1,9 @@
+[
+  {"id": "VASP-001", "name": "NordEx", "country": "Estonia", "licence_status": "LICENSED", "protocol": "TRISA", "notes": "MiCA CASP authorisation (simulated)"},
+  {"id": "VASP-002", "name": "AlpineCoin", "country": "Switzerland", "licence_status": "LICENSED", "protocol": "TRISA", "notes": "FINMA-supervised (simulated)"},
+  {"id": "VASP-003", "name": "Bosphorus Digital", "country": "Turkey", "licence_status": "LICENSED", "protocol": "none", "notes": "Licensed but no Travel Rule messaging"},
+  {"id": "VASP-004", "name": "Gulf Crypto Exchange", "country": "United Arab Emirates", "licence_status": "LICENSED", "protocol": "OpenVASP", "notes": "VARA licence (simulated)"},
+  {"id": "VASP-005", "name": "OffshoreFX", "country": "Seychelles", "licence_status": "UNLICENSED", "protocol": "none", "notes": "No licence found; subject of regulator warning"},
+  {"id": "VASP-006", "name": "BetChain", "country": "Panama", "licence_status": "UNLICENSED", "protocol": "none", "notes": "Online gambling operator, not a supervised VASP"},
+  {"id": "VASP-007", "name": "OldCoin Exchange", "country": "Cyprus", "licence_status": "REVOKED", "protocol": "none", "notes": "Licence revoked 2025 for AML failures"}
+]

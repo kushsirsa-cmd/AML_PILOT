@@ -1,4 +1,10 @@
-__pycache__
-.pytest_cache
-*.db
+**/node_modules
+**/.next
+**/__pycache__
+**/.pytest_cache
+**/*.db
+.git
+.github
+docs
+*.zip
 .env

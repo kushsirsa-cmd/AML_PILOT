@@ -1,0 +1,10 @@
+[
+  {"id": "PEP-001", "name": "Isabella Marchetti", "aliases": ["Isabella Marchetti-Rossi"], "dob": "1966-10-05", "nationality": "Italy", "position": "Former Minister of Infrastructure", "category": "MINISTER", "pep_type": "PEP", "active": false},
+  {"id": "PEP-002", "name": "Chukwuemeka Obi", "aliases": ["Emeka Obi"], "dob": "1960-02-28", "nationality": "Nigeria", "position": "State Governor", "category": "REGIONAL_GOVERNOR", "pep_type": "PEP", "active": true},
+  {"id": "PEP-003", "name": "Aleksandra Nowicka-Wrona", "aliases": ["Aleksandra Nowicka"], "dob": "1974-06-12", "nationality": "Poland", "position": "Member of Parliament (Sejm)", "category": "LEGISLATOR", "pep_type": "PEP", "active": true},
+  {"id": "PEP-004", "name": "Rashid Bin Saeed Al-Falasi", "aliases": ["Rashid Alfalasi"], "dob": "1970-09-17", "nationality": "United Arab Emirates", "position": "Director, sovereign wealth fund", "category": "STATE_OWNED_ENTERPRISE_EXEC", "pep_type": "PEP", "active": true},
+  {"id": "PEP-005", "name": "Sergei Mikhailovich Lebedev", "aliases": ["Sergey Lebedev"], "dob": "1958-01-21", "nationality": "Russia", "position": "Deputy Prime Minister", "category": "HEAD_OF_GOVERNMENT_DEPUTY", "pep_type": "PEP", "active": true},
+  {"id": "PEP-006", "name": "Maria Fernanda Castellanos", "aliases": ["Maria Castellanos"], "dob": "1981-03-03", "nationality": "Colombia", "position": "Daughter of Senator (relative / close associate)", "category": "FAMILY_MEMBER", "pep_type": "RCA", "active": true},
+  {"id": "PEP-007", "name": "Joao Pedro Carvalho", "aliases": ["Joao Carvalho"], "dob": "1963-12-09", "nationality": "Portugal", "position": "Judge, Supreme Court", "category": "SENIOR_JUDICIARY", "pep_type": "PEP", "active": true},
+  {"id": "PEP-008", "name": "Daniel Weber", "aliases": ["Dan Weber"], "dob": "1972-04-04", "nationality": "Germany", "position": "State Secretary, Ministry of Finance", "category": "SENIOR_OFFICIAL", "pep_type": "PEP", "active": true}
+]

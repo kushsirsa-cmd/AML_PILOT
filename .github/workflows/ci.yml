@@ -1,0 +1,30 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -r backend/requirements.txt
+      - run: cd backend && python -m pytest -q
+        env: { DATABASE_URL: "sqlite:///./ci.db", LLM_ENABLED: "false" }
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: cd frontend && npm install --no-audit --no-fund && npx tsc --noEmit && npm run build
+  docker:
+    runs-on: ubuntu-latest
+    needs: [backend, frontend]
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t aml-copilot .
+      - name: smoke test
+        run: |
+          docker run -d --name app -p 8080:8080 aml-copilot
+          for i in $(seq 1 60); do curl -fs localhost:8080/api/health && break; sleep 3; done
+          curl -fs localhost:8080/api/executive | grep -q '"kpis"'
